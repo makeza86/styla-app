@@ -1,45 +1,44 @@
-/* Основные настройки */
-body {
+/* Background behind phone */
+body, html {
     margin: 0;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #222;
+    background: linear-gradient(135deg, #1a0b3a, #4b1f61); /* магический темный фиолетовый */
     font-family: 'Arial', sans-serif;
-    color: #FFD700; /* золотой цвет текста */
 }
 
-/* Рамка телефона */
+/* Phone frame */
 .phone-frame {
     width: 360px;
     height: 720px;
     background: #000;
     border-radius: 40px;
     padding: 15px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Экран внутри телефона */
+/* Phone screen */
 .phone-screen {
     width: 100%;
     height: 100%;
-    background-color: #121212;
+    background-color: #fefaf4; /* светлый фон приложения */
     border-radius: 30px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
-/* Скрытые блоки */
+/* Hidden elements */
 .hidden {
     display: none;
 }
 
-/* Приветственная анимация */
+/* Splash Screen */
 #splash {
     display: flex;
     flex-direction: column;
@@ -47,55 +46,76 @@ body {
     justify-content: center;
     flex: 1;
     text-align: center;
+    background: linear-gradient(to bottom, #fefaf4, #f3f0e6);
     animation: fadeIn 1s ease-in-out;
 }
 
 #splash h1 {
-    font-size: 1.8em;
+    font-size: 2em;
+    color: #6b1fa1; /* фиолетовый */
     margin-bottom: 10px;
 }
 
+#splash p {
+    font-size: 1em;
+    color: #4d0073; /* насыщенный фиолетовый */
+    margin-bottom: 20px;
+}
+
 #splash button {
-    background-color: #FFD700;
+    background-color: #FFD700; /* золотой */
     border: none;
     color: #121212;
     padding: 12px 25px;
     font-size: 1em;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
-    margin-top: 20px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
 }
 
-/* Регистрация */
+#splash button:hover {
+    transform: scale(1.05);
+}
+
+/* Registration Screen */
 #registration {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 15px;
+    padding: 20px;
     gap: 10px;
 }
 
 #registration input, #registration select, #registration button {
     width: 90%;
-    padding: 10px;
+    padding: 12px;
     margin-top: 10px;
-    border-radius: 8px;
+    border-radius: 10px;
     border: none;
 }
 
 #registration button {
-    background-color: #FFD700;
-    color: #121212;
+    background-color: #6b1fa1; /* фиолетовый */
+    color: #FFD700; /* золотой текст */
     font-weight: bold;
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
 }
 
-/* Основной экран */
+#registration button:hover {
+    transform: scale(1.05);
+}
+
+/* Main App */
 header {
-    background-color: #1f1f1f;
+    background-color: #f0e9e0;
     padding: 15px;
     text-align: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    color: #6b1fa1;
 }
 
 main {
@@ -107,27 +127,50 @@ main {
     overflow-y: auto;
 }
 
-/* Карточки */
+/* Cards */
 .card {
-    background-color: #1e1e1e;
-    border-radius: 12px;
+    background-color: #ffffff;
+    border-radius: 16px;
     padding: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* Avatar placeholder */
 .avatar-placeholder {
-    background-color: #2a2a2a;
-    height: 250px;
-    border-radius: 10px;
+    background-color: #f3f0e6;
+    height: 300px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #888888;
     margin-top: 10px;
+    position: relative;
 }
 
-/* Кнопки категорий */
+/* Avatar container */
+.avatar-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.avatar-container img.avatar-photo {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.avatar-container img.avatar-clothes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    opacity: 0;
+    animation: fadeInClothes 0.5s forwards;
+}
+
+/* Categories */
 .categories-list {
     display: flex;
     flex-wrap: wrap;
@@ -137,25 +180,42 @@ main {
 
 .categories-list button {
     flex: 1 1 45%;
-    padding: 10px;
-    background-color: #FFD700;
+    padding: 12px;
+    background-color: #6b1fa1; /* фиолетовый */
+    color: #FFD700; /* золотой текст */
     border: none;
-    border-radius: 8px;
-    color: #121212;
+    border-radius: 12px;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.1s;
+    transition: transform 0.2s;
 }
 
 .categories-list button:hover {
     transform: scale(1.05);
 }
 
-/* Анимация */
+/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
+@keyframes fadeInClothes {
+    from { opacity: 0; transform: scale(0.9);}
+    to { opacity: 1; transform: scale(1);}
+}
+
+/* Mobile Adapt */
+@media (max-width: 400px) {
+    .phone-frame {
+        width: 320px;
+        height: 640px;
+    }
+    .avatar-placeholder {
+        height: 250px;
+    }
+}
+
 
 
 
