@@ -1,4 +1,4 @@
-// Переход с splash на регистрацию с плавной анимацией
+// Переход с splash на регистрацию
 function showRegistration() {
     const splash = document.getElementById('splash');
     const registration = document.getElementById('registration');
@@ -50,21 +50,25 @@ regForm.addEventListener('submit', function(e) {
     }
 });
 
-// Примерка одежды
-function wearClothes(filename) {
+// Маппинг всех PNG по категориям
+const clothesMapping = {
+    tops: ['avatar_tops1.png', 'avatar_tops2.png'],
+    bottoms: ['avatar_bottoms1.png', 'avatar_bottoms2.png'],
+    dresses: ['avatar_dress1.png', 'avatar_dress2.png'],
+    outerwear: ['avatar_outerwear1.png', 'avatar_outerwear2.png']
+};
+
+// Функция примерки одежды с конкретным вариантом
+function wearClothes(category, index) {
     const clothesImg = document.getElementById('avatarClothes');
-    clothesImg.src = `assets/images/clothes/${filename}`;
-    clothesImg.style.opacity = 0;
-    clothesImg.style.animation = 'fadeInClothes 0.5s forwards';
+    if(clothesMapping[category] && clothesMapping[category][index]){
+        const file = clothesMapping[category][index];
+        clothesImg.src = `assets/images/clothes/${file}`;
+        clothesImg.style.opacity = 0;
+        clothesImg.style.animation = 'fadeInClothes 0.5s forwards';
+    }
 }
 
-// Обработчики кнопок категорий
-document.querySelectorAll('.categories-list button').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const category = btn.innerText.toLowerCase(); // 'tops', 'bottoms', etc
-        wearClothes(`avatar_${category}.png`);
-    });
-});
 
 
 
