@@ -8,33 +8,34 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to Styla App</h1>
-        <p>Try clothes on your digital avatar or upload your photo!</p>
+        <h1>Styla App</h1>
+        <p>Try clothes on your avatar or upload your photo!</p>
     </header>
 
     <main>
-        <section id="avatar-section">
+        <section class="card" id="avatar-section">
             <h2>Digital Avatar</h2>
-            <p>Here your avatar will appear.</p>
+            <div class="avatar-placeholder">Avatar will appear here</div>
         </section>
 
-        <section id="upload-section">
+        <section class="card" id="upload-section">
             <h2>Upload Your Photo</h2>
             <input type="file" id="photoUpload" accept="image/*">
         </section>
 
-        <section id="categories">
+        <section class="card" id="categories">
             <h2>Categories</h2>
-            <ul>
-                <li>Tops</li>
-                <li>Bottoms</li>
-                <li>Dresses</li>
-                <li>Outerwear</li>
-            </ul>
+            <div class="categories-list">
+                <button>Tops</button>
+                <button>Bottoms</button>
+                <button>Dresses</button>
+                <button>Outerwear</button>
+            </div>
         </section>
     </main>
 
     <script src="app.js"></script>
 </body>
 </html>
+
 
