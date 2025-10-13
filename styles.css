@@ -5,7 +5,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #1a0b3a, #4b1f61); /* магический темный фиолетовый */
+    background: linear-gradient(135deg, #1a0b3a, #4b1f61);
     font-family: 'Arial', sans-serif;
 }
 
@@ -26,7 +26,7 @@ body, html {
 .phone-screen {
     width: 100%;
     height: 100%;
-    background-color: #fefaf4; /* светлый фон приложения */
+    background-color: #fefaf4;
     border-radius: 30px;
     overflow: hidden;
     display: flex;
@@ -52,18 +52,18 @@ body, html {
 
 #splash h1 {
     font-size: 2em;
-    color: #6b1fa1; /* фиолетовый */
+    color: #6b1fa1;
     margin-bottom: 10px;
 }
 
 #splash p {
     font-size: 1em;
-    color: #4d0073; /* насыщенный фиолетовый */
+    color: #4d0073;
     margin-bottom: 20px;
 }
 
 #splash button {
-    background-color: #FFD700; /* золотой */
+    background-color: #FFD700;
     border: none;
     color: #121212;
     padding: 12px 25px;
@@ -97,8 +97,8 @@ body, html {
 }
 
 #registration button {
-    background-color: #6b1fa1; /* фиолетовый */
-    color: #FFD700; /* золотой текст */
+    background-color: #6b1fa1;
+    color: #FFD700;
     font-weight: bold;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
@@ -170,28 +170,33 @@ main {
     animation: fadeInClothes 0.5s forwards;
 }
 
-/* Categories */
-.categories-list {
+/* Categories buttons */
+.category-group {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
 }
 
-.categories-list button {
-    flex: 1 1 45%;
-    padding: 12px;
-    background-color: #6b1fa1; /* фиолетовый */
-    color: #FFD700; /* золотой текст */
+.category-group h3 {
+    flex: 1;
+    color: #6b1fa1;
+}
+
+.category-group button {
+    flex: 0 0 40px;
+    padding: 8px;
+    background-color: #FFD700;
+    color: #121212;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.2s;
 }
 
-.categories-list button:hover {
-    transform: scale(1.05);
+.category-group button:hover {
+    transform: scale(1.1);
 }
 
 /* Animations */
@@ -215,6 +220,7 @@ main {
         height: 250px;
     }
 }
+
 
 
 
