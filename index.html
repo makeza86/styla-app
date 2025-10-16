@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>STYLA — найди свой стиль</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;700&display=swap');
 
     * {
       margin: 0;
@@ -19,31 +19,24 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      background: linear-gradient(to bottom, #f9e7c0, #efd7a5);
+      background: linear-gradient(to bottom, #f8e6b8, #f0d8a4);
       color: #3b2e1a;
       font-family: 'Montserrat', sans-serif;
       overflow: hidden;
       position: relative;
     }
 
-    /* 💫 Золотые звёздочки по фону */
+    /* ✨ Яркие золотые крупинки на фоне */
     body::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(circle, rgba(255,215,0,0.8) 1px, transparent 1px),
-                        radial-gradient(circle, rgba(255,223,100,0.6) 1px, transparent 1px);
-      background-size: 40px 40px, 25px 25px;
-      background-position: 0 0, 20px 20px;
-      animation: sparkle 8s linear infinite;
-      opacity: 0.7;
+      background-image: radial-gradient(circle, rgba(255,215,0,0.8) 1px, transparent 2px),
+                        radial-gradient(circle, rgba(255,223,120,0.6) 1px, transparent 2px);
+      background-size: 20px 20px, 35px 35px;
+      opacity: 0.8;
       z-index: 0;
       pointer-events: none;
-    }
-
-    @keyframes sparkle {
-      0% { background-position: 0 0, 20px 20px; }
-      100% { background-position: 40px 40px, 60px 60px; }
     }
 
     header {
@@ -52,46 +45,44 @@
       z-index: 1;
     }
 
+    /* 👑 Лого STYLA с короной одного цвета */
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 58px;
+      font-size: 60px;
       font-weight: 700;
       color: #d4af37;
-      text-shadow: 0 0 20px rgba(255, 230, 150, 0.9);
-      position: relative;
+      text-shadow: 0 0 10px rgba(255, 230, 150, 0.9);
       letter-spacing: 2px;
+      position: relative;
+      display: inline-block;
     }
 
-    /* 👑 Золотая корона над STYLA */
     .logo::before {
       content: "👑";
       position: absolute;
-      top: -70px;
+      top: -50px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 70px;
-      color: #ffd700;
-      text-shadow: 0 0 25px rgba(255, 223, 120, 0.95), 0 0 45px rgba(255, 215, 0, 0.6);
-      animation: shine 3s ease-in-out infinite alternate;
+      font-size: 55px;
+      color: #d4af37;
+      text-shadow: 0 0 10px rgba(255, 230, 150, 0.9);
     }
 
-    @keyframes shine {
-      from { opacity: 0.8; transform: translateX(-50%) rotate(-5deg); }
-      to { opacity: 1; transform: translateX(-50%) rotate(5deg); }
-    }
-
+    /* 🌟 Слоган */
     .tagline {
-      font-size: 18px;
-      margin-top: 18px;
-      color: #5e4a2f;
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 20px;
+      color: #5c4427;
       padding: 0 25px;
-      line-height: 1.5;
+      line-height: 1.6;
+      text-shadow: 0 1px 3px rgba(255,255,255,0.5), 0 0 5px rgba(212,175,55,0.3);
     }
 
     .illustration {
-      width: 90%;
-      height: 280px;
-      background: url('https://raw.githubusercontent.com/makeza86/styla-app/main/assets/images/clothes/styla-shopping.png') center/contain no-repeat;
+      width: 100%;
+      height: 300px;
+      background: url('https://raw.githubusercontent.com/makeza86/styla-app/main/assets/images/clothes/styla-shopping.png') center/cover no-repeat;
       border-radius: 40px 40px 0 0;
       box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
       margin-top: 40px;
@@ -126,9 +117,9 @@
     }
 
     @media (max-width: 600px) {
-      .logo { font-size: 44px; }
-      .tagline { font-size: 16px; }
-      .illustration { height: 220px; }
+      .logo { font-size: 48px; }
+      .tagline { font-size: 18px; }
+      .illustration { height: 240px; }
       .start-btn { padding: 14px 50px; font-size: 18px; }
     }
   </style>
@@ -151,4 +142,3 @@
 
 </body>
 </html>
-
