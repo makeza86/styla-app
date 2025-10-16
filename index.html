@@ -1,141 +1,229 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>STYLA — найди свой стиль</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;600&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:space-between;
+      font-family:'Montserrat',sans-serif;
+      color:#3b2e1a;
+      overflow:hidden;
+      position:relative;
+      /* base beige gradient */
+      background:linear-gradient(180deg,#fbf6ee 0%, #f3ead8 40%, #e9d7b7 100%);
     }
 
-    body {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      background: linear-gradient(to bottom, #f8f3e8, #e8d3b4);
-      color: #3b2e1a;
-      font-family: 'Montserrat', sans-serif;
-      overflow: hidden;
-      position: relative;
+    /* GOLD PARTICLES LAYER (under content) */
+    .gold-sparkles {
+      position:absolute;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(212,175,55,0.14) 0px, rgba(212,175,55,0.04) 1px, transparent 2px),
+        radial-gradient(circle at 70% 10%, rgba(212,175,55,0.12) 0px, rgba(212,175,55,0.03) 1px, transparent 2px),
+        radial-gradient(circle at 40% 80%, rgba(212,175,55,0.10) 0px, rgba(212,175,55,0.02) 1px, transparent 2px),
+        repeating-radial-gradient(circle at center, rgba(212,175,55,0.06) 0 1px, transparent 1px 25px);
+      background-size: cover;
+      mix-blend-mode: screen;
+      animation: sparkleMove 18s linear infinite;
+      opacity:0.95;
+      transform: translateZ(0);
+    }
+    @keyframes sparkleMove {
+      from{transform:translateY(0)}
+      50%{transform:translateY(6px)}
+      to{transform:translateY(0)}
     }
 
-    /* Золотые частицы / блики */
-    body::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(255, 215, 0, 0.25) 1px, transparent 2px);
-      background-size: 50px 50px;
-      animation: sparkle 20s linear infinite;
-      pointer-events: none;
-      z-index: 0;
+    header{
+      position:relative;
+      z-index:2;
+      margin-top:60px;
+      text-align:center;
+      width:100%;
+      padding:0 20px;
     }
 
-    @keyframes sparkle {
-      from { background-position: 0 0; }
-      to { background-position: 100px 100px; }
+    /* logo + crown container */
+    .logo-wrap{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      justify-content:center;
     }
 
-    header {
-      text-align: center;
-      margin-top: 70px;
-      position: relative;
-      z-index: 1;
+    .crown {
+      width:56px;
+      height:40px;
+      display:inline-block;
+      transform:translateY(-8px);
+      filter: drop-shadow(0 6px 16px rgba(212,175,55,0.25));
+      flex-shrink:0;
     }
 
+    /* SVG crown filled with same gold tone */
+    .crown svg { width:100%; height:100%; display:block; }
+    /* logo text */
     .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 58px;
-      font-weight: 700;
-      color: #d4af37;
-      text-shadow: 0 0 12px rgba(255, 223, 120, 0.9);
-      position: relative;
-      letter-spacing: 2px;
+      font-family:'Playfair Display',serif;
+      font-size:56px;
+      font-weight:700;
+      color:#d4af37; /* gold color */
+      letter-spacing:2px;
+      line-height:1;
+      text-shadow:0 4px 14px rgba(212,175,55,0.25);
     }
 
-    .logo::before {
-      content: "";
-      position: absolute;
-      top: -65px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70px;
-      height: 50px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/5/58/Gold_Crown_PNG_Clipart.png') center/contain no-repeat;
-      filter: drop-shadow(0 0 8px rgba(255, 223, 120, 0.8));
+    .tagline{
+      margin-top:14px;
+      color:#5e4a2f;
+      font-size:17px;
+      line-height:1.45;
+      padding:0 26px;
+      z-index:2;
     }
 
-    .tagline {
-      font-size: 18px;
-      margin-top: 18px;
-      color: #5e4a2f;
-      padding: 0 25px;
-      line-height: 1.5;
-    }
-
+    /* illustration block (center) */
     .illustration {
-      width: 100%;
-      height: 320px;
-      background: url('https://png.pngtree.com/png-clipart/20231016/original/pngtree-two-young-girls-shopping-in-fashionable-clothes-png-image_13318328.png') center/contain no-repeat;
-      margin-top: 40px;
-      z-index: 1;
+      width:100%;
+      max-width:920px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:2;
+      margin-top:28px;
+      padding:0 20px;
     }
 
-    .start-btn {
-      background: linear-gradient(90deg, #d4af37, #c39a4b);
-      color: white;
-      border: none;
-      padding: 16px 70px;
-      font-size: 20px;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 8px 25px rgba(184, 134, 11, 0.4);
-      transition: all 0.3s ease;
-      margin-bottom: 60px;
-      z-index: 1;
+    .illustration-card{
+      width:100%;
+      max-width:740px;
+      border-radius:20px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.55));
+      box-shadow: 0 18px 50px rgba(0,0,0,0.12);
+      display:block;
+      position:relative;
+      padding:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
-    .start-btn:hover {
-      transform: scale(1.05);
-      background: linear-gradient(90deg, #e1c25a, #b98b2a);
+    /* model image - PNG with transparency / or jpg cover */
+    .illustration-card img{
+      width:100%;
+      height:320px;
+      object-fit:cover;
+      border-radius:12px;
+      display:block;
+      z-index:2;
     }
 
-    footer {
-      font-size: 14px;
-      color: #6b563a;
-      margin-bottom: 15px;
-      text-align: center;
-      z-index: 1;
+    /* small star sparkles over image */
+    .illustration-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(212,175,55,0.18) 0 2px, transparent 3px),
+        radial-gradient(circle at 85% 30%, rgba(212,175,55,0.14) 0 2px, transparent 3px),
+        radial-gradient(circle at 40% 70%, rgba(212,175,55,0.12) 0 2px, transparent 3px);
+      pointer-events:none;
+      mix-blend-mode:screen;
+      opacity:0.95;
     }
 
-    @media (max-width: 600px) {
-      .logo { font-size: 46px; }
-      .tagline { font-size: 16px; }
-      .illustration { height: 250px; }
-      .start-btn { padding: 14px 50px; font-size: 18px; }
+    .start-btn{
+      z-index:2;
+      background:linear-gradient(90deg,#d4af37,#c39a4b);
+      border:none;
+      color:white;
+      padding:16px 64px;
+      font-size:20px;
+      border-radius:999px;
+      box-shadow:0 10px 30px rgba(180,130,20,0.32);
+      cursor:pointer;
+      transition:transform .22s ease, box-shadow .22s ease;
+      margin-bottom:56px;
     }
+    .start-btn:hover{ transform:translateY(-4px) scale(1.02); box-shadow:0 18px 36px rgba(180,130,20,0.36) }
+
+    footer{
+      z-index:2;
+      margin-bottom:14px;
+      color:#6b563a;
+      font-size:14px;
+      text-align:center;
+      padding:0 20px;
+    }
+
+    /* responsive sizes */
+    @media (max-width:900px){
+      .illustration-card img{ height:300px }
+    }
+    @media (max-width:640px){
+      .logo{ font-size:44px }
+      .crown{ width:46px; height:34px; transform:translateY(-6px) }
+      .tagline{ font-size:15px; padding:0 16px }
+      .illustration-card img{ height:240px }
+      .start-btn{ padding:14px 42px; font-size:18px; margin-bottom:40px }
+    }
+
   </style>
 </head>
 <body>
 
+  <!-- Gold particle layer (under UI) -->
+  <div class="gold-sparkles" aria-hidden="true"></div>
+
   <header>
-    <div class="logo">STYLA</div>
+    <div class="logo-wrap">
+      <!-- Inline SVG crown (single gold color matching logo) -->
+      <div class="crown" aria-hidden="true">
+        <svg viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#f6e5a8"/>
+              <stop offset="100%" stop-color="#d4af37"/>
+            </linearGradient>
+          </defs>
+          <path d="M4 34c0 2.2 1.8 4 4 4h48c2.2 0 4-1.8 4-4V12L44 22 32 6 18 22 4 12v22z" fill="url(#g1)"/>
+          <circle cx="10" cy="12" r="3" fill="#f9e9b8"/>
+          <circle cx="30" cy="6" r="3" fill="#f9e9b8"/>
+          <circle cx="50" cy="12" r="3" fill="#f9e9b8"/>
+        </svg>
+      </div>
+
+      <!-- Logo text -->
+      <div class="logo">STYLA</div>
+    </div>
+
     <div class="tagline">
-      Здесь каждый найдёт свой стиль среди <b>1000+</b> товаров.<br>
+      Здесь каждый найдёт свой стиль среди <strong>1000+</strong> товаров.<br>
       Примеряй, сочетай и делись своим образом.
     </div>
   </header>
 
-  <div class="illustration"></div>
+  <main class="illustration" role="main">
+    <div class="illustration-card" aria-hidden="false">
+      <!-- PNG/JPG models image: замените ссылку на свой PNG, если нужно -->
+      <img src="https://png.pngtree.com/png-clipart/20231016/original/pngtree-two-young-girls-shopping-in-fashionable-clothes-png-image_13318328.png" alt="Models in dresses" />
+    </div>
+  </main>
 
-  <button class="start-btn" onclick="window.location.href='profile.html'">Начать</button>
+  <button class="start-btn" onclick="location.href='profile.html'">Начать</button>
 
   <footer>© 2025 STYLA — виртуальная мода нового поколения</footer>
 
