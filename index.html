@@ -19,80 +19,74 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      background: linear-gradient(to bottom, #f9f3e8, #e8d3b4);
+      background: linear-gradient(to bottom, #f8e9c4, #f0d8a7);
       color: #3b2e1a;
       font-family: 'Montserrat', sans-serif;
       overflow: hidden;
       position: relative;
     }
 
-    /* ✨ Золотые крупицы по фону */
+    /* Золотые крупинки на фоне */
     body::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      background-image: radial-gradient(rgba(255, 223, 120, 0.6) 1px, transparent 1px);
-      background-size: 60px 60px;
-      transform: rotate(15deg);
-      animation: shimmer 20s linear infinite;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,215,0,0.8) 1px, transparent 1px);
+      background-size: 35px 35px;
+      animation: sparkle 6s linear infinite;
       opacity: 0.6;
-      pointer-events: none;
+      z-index: 0;
     }
 
-    @keyframes shimmer {
+    @keyframes sparkle {
       from { background-position: 0 0; }
-      to { background-position: 100px 100px; }
+      to { background-position: 35px 35px; }
     }
 
     header {
       text-align: center;
-      margin-top: 60px;
-      z-index: 2;
+      margin-top: 70px;
+      z-index: 1;
     }
 
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 60px;
+      font-size: 58px;
       font-weight: 700;
-      color: #c9a33a;
-      text-shadow: 0 0 15px rgba(255, 215, 100, 0.9);
+      color: #d4af37;
+      text-shadow: 0 0 15px rgba(255, 230, 150, 0.9);
       position: relative;
       letter-spacing: 2px;
-      display: inline-block;
     }
 
-    /* 👑 Корона над логотипом */
+    /* Золотая корона над STYLA */
     .logo::before {
       content: "👑";
       position: absolute;
       top: -55px;
       left: 50%;
-      transform: translateX(-50%) rotate(-2deg);
-      font-size: 45px;
-      color: #f4c842;
-      text-shadow: 0 0 15px rgba(255, 235, 150, 1);
+      transform: translateX(-50%);
+      font-size: 50px;
+      color: #ffd700;
+      text-shadow: 0 0 20px rgba(255, 223, 100, 0.9);
     }
 
     .tagline {
       font-size: 18px;
-      margin-top: 20px;
+      margin-top: 18px;
       color: #5e4a2f;
       padding: 0 25px;
       line-height: 1.5;
-      z-index: 2;
     }
 
     .illustration {
       width: 100%;
       height: 300px;
-      background: url('https://png.pngtree.com/png-clipart/20230925/original/pngtree-fashionable-women-walking-in-mall-png-image_13188855.png') center/contain no-repeat;
+      background: url('https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
       border-radius: 40px 40px 0 0;
       box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
       margin-top: 40px;
-      z-index: 2;
+      z-index: 1;
     }
 
     .start-btn {
@@ -106,7 +100,7 @@
       box-shadow: 0 8px 25px rgba(184, 134, 11, 0.4);
       transition: all 0.3s ease;
       margin-bottom: 60px;
-      z-index: 2;
+      z-index: 1;
     }
 
     .start-btn:hover {
@@ -119,14 +113,13 @@
       color: #6b563a;
       margin-bottom: 15px;
       text-align: center;
-      z-index: 2;
+      z-index: 1;
     }
 
     @media (max-width: 600px) {
       .logo { font-size: 44px; }
-      .logo::before { font-size: 38px; top: -45px; }
       .tagline { font-size: 16px; }
-      .illustration { height: 250px; background-size: cover; }
+      .illustration { height: 250px; }
       .start-btn { padding: 14px 50px; font-size: 18px; }
     }
   </style>
