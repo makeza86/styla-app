@@ -5,70 +5,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>STYLA — твой стиль в одном месте</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
 
     body {
       height: 100vh;
-      background: linear-gradient(to bottom right, #e7dcc3, #c4a676);
+      background: radial-gradient(circle at top, #f9e4b7 0%, #d6b36c 45%, #b88a3b 100%);
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
       color: #2e2e2e;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    header {
+      margin-top: 60px;
     }
 
     .logo {
-      font-size: 48px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      color: #2e2e2e;
-      margin-bottom: 10px;
+      font-size: 54px;
+      font-weight: 800;
+      background: linear-gradient(45deg, #fef4d0, #e5c16a, #b68b33);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(255, 230, 160, 0.6);
+      position: relative;
+      display: inline-block;
+    }
+
+    .logo::before {
+      content: "👑";
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-10deg);
+      font-size: 42px;
+      color: #f4d06f;
+      text-shadow: 0 0 15px rgba(255, 215, 100, 0.9);
     }
 
     .tagline {
-      font-size: 16px;
-      color: #5a4d3a;
-      margin-bottom: 60px;
+      font-size: 18px;
+      margin-top: 15px;
+      line-height: 1.6;
+      color: #3c2f16;
+      padding: 0 20px;
     }
 
     .start-btn {
-      background-color: #c4a676;
+      background: linear-gradient(90deg, #d4af37, #b8860b);
       color: white;
       border: none;
-      padding: 18px 60px;
-      font-size: 20px;
+      padding: 18px 70px;
+      font-size: 22px;
       border-radius: 50px;
       cursor: pointer;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 25px rgba(184, 134, 11, 0.5);
       transition: all 0.3s ease;
+      margin-bottom: 90px;
     }
 
     .start-btn:hover {
       transform: scale(1.05);
-      background-color: #b18c5d;
+      background: linear-gradient(90deg, #e2c467, #cfa93a);
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
     }
 
     footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 14px;
-      color: #5a4d3a;
+      font-size: 13px;
+      color: rgba(60, 47, 22, 0.8);
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .logo {
+        font-size: 44px;
+      }
+
+      .tagline {
+        font-size: 16px;
+      }
+
+      .start-btn {
+        padding: 16px 55px;
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="logo">STYLA</div>
-  <div class="tagline">Создай свой идеальный образ прямо сейчас</div>
+  <header>
+    <div class="logo">STYLA</div>
+    <div class="tagline">
+      Здесь каждый найдёт свой стиль среди <b>1000+</b> образов.<br>
+      Примеряй, сочетай и делись своим стилем!
+    </div>
+  </header>
+
   <button class="start-btn" onclick="window.location.href='profile.html'">Начать</button>
 
-  <footer>© 2025 STYLA — виртуальный стиль нового поколения</footer>
+  <footer>© 2025 STYLA — твой персональный модный ассистент</footer>
 
 </body>
 </html>
-
