@@ -19,31 +19,31 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      background: linear-gradient(to bottom, #f9e7c0, #efd7a5);
+      background: linear-gradient(to bottom, #f8e7c5, #f3dba7);
       color: #3b2e1a;
       font-family: 'Montserrat', sans-serif;
       overflow: hidden;
       position: relative;
     }
 
-    /* 💫 Золотые звёздочки по фону */
+    /* ✨ Золотые крупинки по фону */
     body::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(circle, rgba(255,215,0,0.8) 1px, transparent 1px),
-                        radial-gradient(circle, rgba(255,223,100,0.6) 1px, transparent 1px);
-      background-size: 40px 40px, 25px 25px;
-      background-position: 0 0, 20px 20px;
-      animation: sparkle 8s linear infinite;
+      background-image: radial-gradient(circle, rgba(255, 215, 0, 0.9) 1.5px, transparent 1.5px),
+                        radial-gradient(circle, rgba(255, 240, 180, 0.8) 1px, transparent 1px),
+                        radial-gradient(circle, rgba(255, 220, 120, 0.6) 1px, transparent 1px);
+      background-size: 50px 50px, 70px 70px, 100px 100px;
+      animation: sparkle 10s linear infinite;
       opacity: 0.7;
       z-index: 0;
       pointer-events: none;
     }
 
     @keyframes sparkle {
-      0% { background-position: 0 0, 20px 20px; }
-      100% { background-position: 40px 40px, 60px 60px; }
+      0% { background-position: 0 0, 20px 20px, 40px 40px; }
+      100% { background-position: 60px 60px, 80px 80px, 100px 100px; }
     }
 
     header {
@@ -62,22 +62,22 @@
       letter-spacing: 2px;
     }
 
-    /* 👑 Золотая корона над STYLA */
+    /* 👑 Корона над STYLA */
     .logo::before {
       content: "👑";
       position: absolute;
-      top: -70px;
+      top: -65px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 70px;
-      color: #ffd700;
-      text-shadow: 0 0 25px rgba(255, 223, 120, 0.95), 0 0 45px rgba(255, 215, 0, 0.6);
-      animation: shine 3s ease-in-out infinite alternate;
+      font-size: 58px;
+      color: #d4af37;
+      text-shadow: 0 0 25px rgba(255, 230, 120, 0.95);
+      animation: glow 3s ease-in-out infinite alternate;
     }
 
-    @keyframes shine {
-      from { opacity: 0.8; transform: translateX(-50%) rotate(-5deg); }
-      to { opacity: 1; transform: translateX(-50%) rotate(5deg); }
+    @keyframes glow {
+      from { opacity: 0.85; transform: translateX(-50%) rotate(-3deg); }
+      to { opacity: 1; transform: translateX(-50%) rotate(3deg); }
     }
 
     .tagline {
@@ -86,11 +86,13 @@
       color: #5e4a2f;
       padding: 0 25px;
       line-height: 1.5;
+      font-weight: 600;
+      text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
     }
 
     .illustration {
       width: 90%;
-      height: 280px;
+      height: 260px;
       background: url('https://raw.githubusercontent.com/makeza86/styla-app/main/assets/images/clothes/styla-shopping.png') center/contain no-repeat;
       border-radius: 40px 40px 0 0;
       box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
@@ -127,8 +129,9 @@
 
     @media (max-width: 600px) {
       .logo { font-size: 44px; }
+      .logo::before { font-size: 44px; top: -50px; }
       .tagline { font-size: 16px; }
-      .illustration { height: 220px; }
+      .illustration { height: 200px; }
       .start-btn { padding: 14px 50px; font-size: 18px; }
     }
   </style>
