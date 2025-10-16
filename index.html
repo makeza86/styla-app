@@ -26,14 +26,14 @@
       position: relative;
     }
 
-    /* ✨ Яркие золотые крупинки на фоне */
+    /* ✨ Золотые крупинки */
     body::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(circle, rgba(255,215,0,0.8) 1px, transparent 2px),
-                        radial-gradient(circle, rgba(255,223,120,0.6) 1px, transparent 2px);
-      background-size: 20px 20px, 35px 35px;
+      background-image: radial-gradient(circle, rgba(255,215,0,0.7) 1px, transparent 2px),
+                        radial-gradient(circle, rgba(255,223,120,0.5) 1px, transparent 2px);
+      background-size: 22px 22px, 38px 38px;
       opacity: 0.8;
       z-index: 0;
       pointer-events: none;
@@ -43,9 +43,10 @@
       text-align: center;
       margin-top: 70px;
       z-index: 1;
+      position: relative;
     }
 
-    /* 👑 Лого STYLA с короной одного цвета */
+    /* 👑 Лого STYLA с золотой короной */
     .logo {
       font-family: 'Playfair Display', serif;
       font-size: 60px;
@@ -57,22 +58,21 @@
       display: inline-block;
     }
 
-    .logo::before {
-      content: "👑";
+    .crown {
       position: absolute;
-      top: -50px;
+      top: -75px; /* чуть выше */
       left: 50%;
       transform: translateX(-50%);
-      font-size: 55px;
-      color: #d4af37;
-      text-shadow: 0 0 10px rgba(255, 230, 150, 0.9);
+      width: 70px;
+      height: auto;
+      filter: drop-shadow(0 0 10px rgba(255, 230, 150, 0.8));
     }
 
     /* 🌟 Слоган */
     .tagline {
       font-size: 20px;
       font-weight: 700;
-      margin-top: 20px;
+      margin-top: 25px;
       color: #5c4427;
       padding: 0 25px;
       line-height: 1.6;
@@ -81,7 +81,7 @@
 
     .illustration {
       width: 100%;
-      height: 300px;
+      height: 240px; /* уменьшил высоту */
       background: url('https://raw.githubusercontent.com/makeza86/styla-app/main/assets/images/clothes/styla-shopping.png') center/cover no-repeat;
       border-radius: 40px 40px 0 0;
       box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
@@ -118,16 +118,20 @@
 
     @media (max-width: 600px) {
       .logo { font-size: 48px; }
+      .illustration { height: 200px; }
       .tagline { font-size: 18px; }
-      .illustration { height: 240px; }
       .start-btn { padding: 14px 50px; font-size: 18px; }
+      .crown { width: 55px; top: -60px; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo">STYLA</div>
+    <div class="logo">
+      <img class="crown" src="https://upload.wikimedia.org/wikipedia/commons/7/75/Golden_simple_crown_icon.svg" alt="Корона">
+      STYLA
+    </div>
     <div class="tagline">
       Здесь каждый найдёт свой стиль среди <b>1000+</b> товаров.<br>
       Примеряй, сочетай и делись своим образом.
